@@ -1,22 +1,22 @@
 Panels:
   - Class: rviz_common/Displays
-    Name: Displays
-Visualization Manager:
-  Class: rviz_common/VisualizationManager
-  Displays:
-    - Alpha: 0.5
-      Cell Size: 1
-      Class: rviz_default_plugins/Grid
-      Enabled: true
-      Name: Grid
-    - Class: rviz_default_plugins/RobotModel
-      Description Source: Topic
-      Description Topic: /robot_description
-      Enabled: true
-      Name: RobotModel
-    - Class: rviz_default_plugins/TF
-      Enabled: true
-      Name: TF
-  Global Options:
-    Fixed Frame: base_footprint
-  Value: true
+      Name: Displays
+      Visualization Manager:
+        Class: rviz_common/VisualizationManager
+          Displays:
+              - Alpha: 0.5
+                    Cell Size: 1
+                          Class: rviz_default_plugins/Grid
+                                Enabled: true
+                                      Name: Grid
+                                          - Class: rviz_default_plugins/RobotModel
+                                                Description Source: Topic
+                                                      Description Topic: /robot_description
+                                                            Enabled: true
+                                                                  Name: RobotModel
+                                                                      - Class: rviz_default_plugins/TF
+                                                                            Enabled: true
+                                                                                  Name: TF
+                                                                                    Global Options:
+                                                                                        Fixed Frame: base_footprint
+                                                                                          Value: true

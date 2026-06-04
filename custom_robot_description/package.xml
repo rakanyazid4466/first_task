@@ -4,13 +4,15 @@
   <name>custom_robot_description</name>
   <version>0.0.0</version>
   <description>Custom 4-wheel robot description package</description>
-  <maintainer email="rakanyazid4466@github.com">Rakan</maintainer>
+  
+  <maintainer email="user@todo.todo">user</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
   <exec_depend>xacro</exec_depend>
 
   <export>
