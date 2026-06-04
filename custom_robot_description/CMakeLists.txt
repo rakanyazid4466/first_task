@@ -3,10 +3,21 @@ project(custom_robot_description)
 
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY launch urdf DESTINATION share/${PROJECT_NAME})
+# Install the flat files from your package directory
+install(FILES
+  CMakeLists.txt
+  package.xml
+  display.launch.py
+  properties.xacro
+  robot.urdf.xacro
+  DESTINATION share/${PROJECT_NAME}
+)
 
-if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/media")
-  install(DIRECTORY media DESTINATION share/${PROJECT_NAME})
+# Safely install urdf.rviz if it's sitting in this directory or the parent directory
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/urdf.rviz")
+    install(FILES urdf.rviz DESTINATION share/${PROJECT_NAME})
+elseif(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../urdf.rviz")
+    install(FILES ../urdf.rviz DESTINATION share/${PROJECT_NAME})
 endif()
 
 ament_package()
