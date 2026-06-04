@@ -20,12 +20,61 @@ The project consists of three core files:
 ## How to View the Model
 
 ### File Structure
+All source code, package manifests, and launch files are organized cleanly within the following structure:
+
 ```text
 first_task/
 ├── README.md
+└── urdf.rviz
 └── custom_robot_description/
     ├── CMakeLists.txt
     ├── package.xml
     ├── display.launch.py
     ├── properties.xacro
     └── robot.urdf.xacro
+    
+
+# Build and Execution Instructions
+
+Follow the steps below to clean, compile, and run the robot visualization environment.
+
+## 1. Clean and Compile the Workspace
+
+Navigate to your ROS 2 workspace root directory, remove previous build artifacts, and compile the required package:
+
+```bash
+cd ~/workspaces
+rm -rf build/ install/ log/
+colcon build --packages-select custom_robot_description
+```
+
+## 2. Source the Environment
+
+Overlay the newly built packages onto the current terminal session:
+
+```bash
+source install/setup.bash
+```
+
+## 3. Launch the Robot Description
+
+Run the unified launch file to start the ROS 2 node graph and initialize the visualization environment:
+
+```bash
+ros2 launch custom_robot_description display.launch.py
+```
+
+## Expected Outcome
+
+After executing the launch command:
+
+* The `custom_robot_description` package will be loaded.
+* Required ROS 2 nodes will be started automatically.
+* The robot model will be published and visualized.
+* The visualization environment (e.g., RViz) will open and display the robot configuration.
+
+## Notes
+
+* Ensure ROS 2 is properly installed and configured before running these commands.
+* Verify that all package dependencies have been installed.
+* If changes are made to the package source files, repeat the build process before launching.
